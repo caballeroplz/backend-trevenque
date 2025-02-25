@@ -25,7 +25,7 @@ class CategoryService
 
     public function getAllCategories(): array
     {
-        return $this->categoryRepository->showAll();
+        return $this->categoryRepository->all();
     }
 
     public function updateCategory($id, $name): ?Category
