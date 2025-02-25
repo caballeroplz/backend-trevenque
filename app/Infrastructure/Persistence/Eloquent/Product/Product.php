@@ -2,18 +2,21 @@
 namespace App\Infrastructure\Persistence\Eloquent\Category;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Category extends Model
+
+
+
+class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'price', 'stock', 'active', 'category_id'];
 
     //realationship
-    public function products(): HasMany
+    public function category(): BelongsTo
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsTo(Category::class);
     }
+
 }
