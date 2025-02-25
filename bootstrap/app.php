@@ -11,7 +11,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->validateCsrfTokens(except: [
+            'api/*', // Excluye todas las rutas que comienzan con 'api/'
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
