@@ -6,8 +6,8 @@ use App\Domain\Category\ValueObjects\CategoryName;
 
 interface CategoryRepositoryInterface
 {
-    public function showAll(): array;
-    public function save(Category $brand);
-    public function update($id, CategoryName $name): ?Category;
+    public function all(): array;
+    public function save(Category $category): ?Category;
+    public function update(Category $category): ?Category;
     public function delete($id): bool;
 }
